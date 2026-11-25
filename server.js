@@ -9,7 +9,8 @@ const PORT = process.env.PORT || 3000;
 const rooms = new Map();
 const MAX_PLAYERS = 10;
 
-app.use(express.static('public'));
+const path = require('path');
+app.use(express.static(path.join(__dirname, 'public')));
 app.get('/health', (_req, res) => res.json({ ok: true, game: 'HULLBREACH' }));
 
 function makeCode() {
